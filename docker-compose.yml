@@ -17,6 +17,6 @@ services:
     environment: 
       POSTGRES_PASSWORD: root
     volumes:
-      - .dbdata:/var/lib/postgres
+      - .db-data:/var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - 8080:5432
