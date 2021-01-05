@@ -2,8 +2,8 @@ version: '3.3'
 services: 
   authentication:
     build:
-      context: .
-      dockerfile: ./authentication/Dockerfile
+      context: ./authentication
+      dockerfile: Dockerfile
     ports:
       - 8000:8000
     volumes:
@@ -23,3 +23,14 @@ services:
       - .dbdata:/var/lib/mysql
     ports:
       - 8080:3306
+
+  nginx:
+    image: nginx
+    restart: always
+    ports:
+      - 80:80
+      - 8888:8888
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    links:
+      - authentication

@@ -18,6 +18,5 @@ from django.urls import path, include
 from knox.views import LoginView
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("api/auth/", include("account.urls")),
+    path("", include("account.urls")),
 ]
